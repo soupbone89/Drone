@@ -18,5 +18,5 @@ do
     led yellow on 2> /dev/null
   elif echo "$line" | fgrep -q 'username:'; then
     led red on 2> /dev/null
-fi
+  fi
 done
