@@ -52,7 +52,7 @@ if jmp 7; then
     screen -S wpapsk -X screen -t deauth ./deauth.sh -c 1,6,11
     screen -S wpapsk -X screen -t brute ./brute-wpapsk.sh
     screen -S wpapsk -X screen -t auth ./auth.sh
-    screen -S wpapsk -X screen -t brute-pmk ./brute-pmk.sh
+    screen -S wpapsk -X screen -t brute-pmkid ./brute-pmkid.sh
     screen -S wpapsk -X screen -t online_brute ./online-brute.sh wpa-brute-width.sh "Target" 12345678 123456789 1234567890
 elif jmp 11; then
     echo "[*] wps attack (static/dynamic)"
