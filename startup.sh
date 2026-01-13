@@ -43,7 +43,7 @@ led red off 2>/dev/null
 
 
 # Main mode selection
-if jmp 7; then # Default or example — adjust if needed
+if jmp 7; then
     echo "[*] wpa auth/deauth/online_brute attack (static/dynamic)"
     monitor_enable
     cd /home/pi/wpapsk || exit 1
