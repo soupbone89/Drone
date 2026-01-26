@@ -1,3 +1,3 @@
 # Drone
 
-Use the information provided for education purposes only 
+Use the information provided for educational purposes only 
